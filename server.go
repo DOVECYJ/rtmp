@@ -571,15 +571,13 @@ func getCsidAndMsid(mtid uint8) (csid, msid uint32) {
 
 // A Server represent a rtmp server
 type Server struct {
-	Addr         string
-	MaxChunkSize int
-	Logger       Logger
-	inShutdown   atomicBool
-	lock         sync.Mutex
-	doneChan     chan struct{}
-	onShutdown   []func()
-	Handler      Handler
-	streams      map[string]Streamer
+	Addr       string
+	Logger     Logger
+	inShutdown atomicBool
+	lock       sync.Mutex
+	doneChan   chan struct{}
+	onShutdown []func()
+	Handler    Handler
 }
 
 func (s *Server) ListenAndServe() error {
@@ -588,7 +586,7 @@ func (s *Server) ListenAndServe() error {
 	}
 	var addr string
 	if addr = s.Addr; addr == "" {
-		addr = ":1935"
+		addr = ":1935" // rtmp默认端口
 	}
 	ln, err := net.Listen("tcp", addr)
 	if err != nil {

@@ -70,7 +70,7 @@ const (
 )
 
 var (
-	MsgLengthErr = errors.New("message is too long")
+	ErrMsgLength = errors.New("message is too long")
 )
 
 type level string
@@ -119,7 +119,7 @@ func (m Message) Timestamp() uint32 {
 
 func (m Message) Marshal() ([]byte, error) {
 	if len(m.Payload) > math.MaxUint32 {
-		return nil, MsgLengthErr
+		return nil, ErrMsgLength
 	}
 	return m.Payload, nil
 }
@@ -141,7 +141,7 @@ func (m message) Timestamp() uint32 {
 
 func (m message) Marshal() ([]byte, error) {
 	if len(m.payload) > math.MaxUint32 {
-		return nil, MsgLengthErr
+		return nil, ErrMsgLength
 	}
 	return m.payload, nil
 }

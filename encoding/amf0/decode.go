@@ -22,7 +22,7 @@ const (
 	AMF_ECMA_ARRAY   = 0x08 //键值对数组
 	AMF_OBJECT_END   = 0x09 //对象结束
 	AMF_STRICT_ARRAY = 0x0A //数组
-	AMF_DATE         = 0x0B
+	AMF_DATE         = 0x0B //日期
 	AMF_LONG_STRING  = 0x0C //长字符串
 	AMF_UNSUPPORTED  = 0x0D
 	AMF_RECORDSET    = 0x0E //reserved
